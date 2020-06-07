@@ -3,7 +3,7 @@ package rediscluster
 import (
 	"log"
 
-	"github.com/joomcode/redispipe/redisconn"
+	"github.com/xsyr/redispipe/redisconn"
 )
 
 // Logger is used for loggin cluster-related events and requests statistic.

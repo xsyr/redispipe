@@ -1,8 +1,8 @@
 package rediscluster
 
 import (
-	"github.com/joomcode/redispipe/redis"
-	"github.com/joomcode/redispipe/rediscluster/redisclusterutil"
+	"github.com/xsyr/redispipe/redis"
+	"github.com/xsyr/redispipe/rediscluster/redisclusterutil"
 )
 
 // Scanner is an implementation of redis.Scanner.

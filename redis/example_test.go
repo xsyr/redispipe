@@ -7,9 +7,9 @@ import (
 	"log"
 	"time"
 
-	"github.com/joomcode/redispipe/redis"
-	"github.com/joomcode/redispipe/redisconn"
-	"github.com/joomcode/redispipe/testbed"
+	"github.com/xsyr/redispipe/redis"
+	"github.com/xsyr/redispipe/redisconn"
+	"github.com/xsyr/redispipe/testbed"
 )
 
 func ExampleAppendRequest() {

@@ -1,6 +1,6 @@
 package redisconn
 
-import "github.com/joomcode/redispipe/redis"
+import "github.com/xsyr/redispipe/redis"
 
 // EachShard implements redis.Sender.EachShard.
 // It just calls callback once with Connection itself.

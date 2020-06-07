@@ -6,9 +6,9 @@ import (
 	"net"
 	"time"
 
-	"github.com/joomcode/redispipe/redis"
-	"github.com/joomcode/redispipe/rediscluster/redisclusterutil"
-	"github.com/joomcode/redispipe/redisconn"
+	"github.com/xsyr/redispipe/redis"
+	"github.com/xsyr/redispipe/rediscluster/redisclusterutil"
+	"github.com/xsyr/redispipe/redisconn"
 )
 
 // ConnType - type of connection (simple server, or cluster aware).

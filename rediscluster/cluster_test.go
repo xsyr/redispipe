@@ -15,11 +15,11 @@ import (
 
 	"github.com/joomcode/errorx"
 
-	"github.com/joomcode/redispipe/redis"
-	. "github.com/joomcode/redispipe/rediscluster"
-	"github.com/joomcode/redispipe/rediscluster/redisclusterutil"
-	"github.com/joomcode/redispipe/redisconn"
-	"github.com/joomcode/redispipe/testbed"
+	"github.com/xsyr/redispipe/redis"
+	. "github.com/xsyr/redispipe/rediscluster"
+	"github.com/xsyr/redispipe/rediscluster/redisclusterutil"
+	"github.com/xsyr/redispipe/redisconn"
+	"github.com/xsyr/redispipe/testbed"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 )

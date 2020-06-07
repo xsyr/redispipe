@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"syscall"
 
-	"github.com/joomcode/redispipe/redisdumb"
+	"github.com/xsyr/redispipe/redisdumb"
 )
 
 // Server is a handle for running redis-server.

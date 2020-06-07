@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/joomcode/redispipe/redis"
+	"github.com/xsyr/redispipe/redis"
 
 	"github.com/stretchr/testify/assert"
 )

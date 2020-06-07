@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/joomcode/redispipe/rediscluster/redisclusterutil"
+	"github.com/xsyr/redispipe/rediscluster/redisclusterutil"
 )
 
 // Node is wrapper for Server with its NodeId

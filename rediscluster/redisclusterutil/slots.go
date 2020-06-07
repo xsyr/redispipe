@@ -3,7 +3,7 @@ package redisclusterutil
 import (
 	"math/rand"
 
-	"github.com/joomcode/redispipe/redis"
+	"github.com/xsyr/redispipe/redis"
 )
 
 // ReqSlot returns slot number targeted by this command.

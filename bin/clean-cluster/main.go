@@ -8,8 +8,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/joomcode/redispipe/redis"
-	"github.com/joomcode/redispipe/rediscluster"
+	"github.com/xsyr/redispipe/redis"
+	"github.com/xsyr/redispipe/rediscluster"
 )
 
 var sleep = flag.Duration("sleep", 50*time.Millisecond, "sleep between batches")

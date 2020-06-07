@@ -3,7 +3,7 @@ package redisclusterutil
 import (
 	"strconv"
 
-	"github.com/joomcode/redispipe/redis"
+	"github.com/xsyr/redispipe/redis"
 )
 
 // MasterOnlyKey is a key of redis's SET which contains slots number.

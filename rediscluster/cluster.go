@@ -9,9 +9,9 @@ import (
 
 	"github.com/joomcode/errorx"
 
-	"github.com/joomcode/redispipe/redis"
-	"github.com/joomcode/redispipe/rediscluster/redisclusterutil"
-	"github.com/joomcode/redispipe/redisconn"
+	"github.com/xsyr/redispipe/redis"
+	"github.com/xsyr/redispipe/rediscluster/redisclusterutil"
+	"github.com/xsyr/redispipe/redisconn"
 )
 
 // ConnHostPolicyEnum is config enumeration of policies of connections-per-host usage.

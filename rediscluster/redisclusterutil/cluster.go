@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/joomcode/redispipe/redis"
+	"github.com/xsyr/redispipe/redis"
 )
 
 // SlotMoving is a flag about direction of slot migration.

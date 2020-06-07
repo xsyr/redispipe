@@ -3,7 +3,7 @@ package redisconn
 import (
 	"time"
 
-	"github.com/joomcode/redispipe/redis"
+	"github.com/xsyr/redispipe/redis"
 )
 
 // Request is an alias for redis.Request

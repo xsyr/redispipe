@@ -9,13 +9,13 @@ import (
 	. "testing"
 	"time"
 
-	"github.com/joomcode/redispipe/rediscluster"
-	"github.com/joomcode/redispipe/testbed"
+	"github.com/xsyr/redispipe/rediscluster"
+	"github.com/xsyr/redispipe/testbed"
 
-	"github.com/joomcode/redispipe/redis"
+	"github.com/xsyr/redispipe/redis"
 
 	redigo "github.com/chasex/redis-go-cluster"
-	"github.com/joomcode/redispipe/redisconn"
+	"github.com/xsyr/redispipe/redisconn"
 
 	radixv2cluster "github.com/mediocregopher/radix.v2/cluster"
 )

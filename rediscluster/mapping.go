@@ -7,8 +7,8 @@ import (
 
 	"github.com/joomcode/errorx"
 
-	"github.com/joomcode/redispipe/redis"
-	"github.com/joomcode/redispipe/redisconn"
+	"github.com/xsyr/redispipe/redis"
+	"github.com/xsyr/redispipe/redisconn"
 )
 
 // storeConfig atomically stores config

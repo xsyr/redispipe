@@ -5,11 +5,11 @@ import (
 	"runtime"
 	. "testing"
 
-	"github.com/joomcode/redispipe/redis"
-	"github.com/joomcode/redispipe/testbed"
+	"github.com/xsyr/redispipe/redis"
+	"github.com/xsyr/redispipe/testbed"
 
 	redigo "github.com/garyburd/redigo/redis"
-	"github.com/joomcode/redispipe/redisconn"
+	"github.com/xsyr/redispipe/redisconn"
 
 	radixv2pool "github.com/mediocregopher/radix.v2/pool"
 	radixv2 "github.com/mediocregopher/radix.v2/redis"

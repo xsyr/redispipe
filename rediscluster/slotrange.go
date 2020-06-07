@@ -5,8 +5,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/joomcode/redispipe/redis"
-	"github.com/joomcode/redispipe/rediscluster/redisclusterutil"
+	"github.com/xsyr/redispipe/redis"
+	"github.com/xsyr/redispipe/rediscluster/redisclusterutil"
 )
 
 const masterOnlyFlag = 0x4000

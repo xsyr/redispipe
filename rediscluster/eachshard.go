@@ -1,7 +1,7 @@
 package rediscluster
 
 import (
-	"github.com/joomcode/redispipe/redis"
+	"github.com/xsyr/redispipe/redis"
 )
 
 // EachShard implements redis.Sender.EachShard

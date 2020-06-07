@@ -1,7 +1,7 @@
 package redisconn
 
 import (
-	"github.com/joomcode/redispipe/redis"
+	"github.com/xsyr/redispipe/redis"
 )
 
 // Scanner is an implementation of redis.Scanner
