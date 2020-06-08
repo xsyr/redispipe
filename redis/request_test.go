@@ -3,8 +3,8 @@ package redis_test
 import (
 	"testing"
 
-	. "github.com/xsyr/redispipe/redis"
 	"github.com/stretchr/testify/assert"
+	. "github.com/xsyr/redispipe/redis"
 )
 
 func TestRequestKey(t *testing.T) {

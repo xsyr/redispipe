@@ -11,11 +11,11 @@ import (
 
 	"github.com/joomcode/errorx"
 
+	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/suite"
 	"github.com/xsyr/redispipe/redis"
 	. "github.com/xsyr/redispipe/redisconn"
 	"github.com/xsyr/redispipe/testbed"
-	"github.com/stretchr/testify/require"
-	"github.com/stretchr/testify/suite"
 )
 
 type Suite struct {

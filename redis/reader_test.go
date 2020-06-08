@@ -8,8 +8,8 @@ import (
 
 	"github.com/joomcode/errorx"
 
-	. "github.com/xsyr/redispipe/redis"
 	"github.com/stretchr/testify/assert"
+	. "github.com/xsyr/redispipe/redis"
 )
 
 func lines2bufio(lines ...string) *bufio.Reader {
