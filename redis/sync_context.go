@@ -19,7 +19,7 @@ type SyncCtx struct {
 // Returns value that could be either result or error.
 // When context is cancelled, Do returns ErrRequestCancelled error.
 func (s SyncCtx) Do(ctx context.Context, cmd string, args ...interface{}) interface{} {
-	return s.Send(ctx, Request{cmd, args})
+	return s.Send(ctx, Request{cmd, args, nil})
 }
 
 // Send sends request to redis.

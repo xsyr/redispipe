@@ -79,7 +79,7 @@ func (s ScanOpts) Request(it []byte) Request {
 	if s.Count > 0 {
 		args = append(args, "COUNT", s.Count)
 	}
-	return Request{s.Cmd, args}
+	return Request{s.Cmd, args, nil}
 }
 
 // ScannerBase is internal "parent" object for scanner implementations

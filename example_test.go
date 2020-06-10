@@ -62,7 +62,7 @@ func Example_usage() {
 	}
 	defer sender.Close()
 
-	sync := redis.SyncCtx{sender} // wrapper for synchronous api
+    sync := redis.SyncCtx{S: sender} // wrapper for synchronous api
 
 	res := sync.Do(ctx, "SET", "key", "ho")
 	if err := redis.AsError(res); err != nil {

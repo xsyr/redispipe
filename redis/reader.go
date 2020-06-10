@@ -1,9 +1,9 @@
 package redis
 
 import (
+    "io"
 	"bufio"
 	"bytes"
-	"io"
 	"strings"
 
 	"github.com/joomcode/errorx"

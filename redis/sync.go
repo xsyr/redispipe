@@ -14,7 +14,7 @@ type Sync struct {
 // Do is convenient method to construct and send request.
 // Returns value that could be either result or error.
 func (s Sync) Do(cmd string, args ...interface{}) interface{} {
-	return s.Send(Request{cmd, args})
+	return s.Send(Request{cmd, args, nil})
 }
 
 // Send sends request to redis.

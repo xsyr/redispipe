@@ -1,10 +1,17 @@
 package redis
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/xsyr/goinfra/pool"
+)
 
 // Req - convenient wrapper to create Request.
 func Req(cmd string, args ...interface{}) Request {
-	return Request{cmd, args}
+	return Request{Cmd : cmd, Args: args }
+}
+
+func ReqNew(cmd string, bs *pool.ByteSlice) Request {
+	return Request{Cmd : cmd, ArgsBS: bs }
 }
 
 // Request represents request to be passed to redis.
@@ -13,6 +20,8 @@ type Request struct {
 	// It could contain single space, then it will be split, and last part will be serialized as an argument.
 	Cmd  string
 	Args []interface{}
+
+	ArgsBS *pool.ByteSlice
 }
 
 func (r Request) String() string {
@@ -48,6 +57,14 @@ func (r Request) Key() (string, bool) {
 	default:
 		n = 0
 	}
+
+	if r.ArgsBS != nil {
+		if r.ArgsBS.Len() <= n {
+			return "", false
+		}
+        return string(r.ArgsBS.Index(n)), true
+	}
+
 	if len(r.Args) <= n {
 		return "", false
 	}

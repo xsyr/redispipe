@@ -35,55 +35,62 @@ func AppendRequest(buf []byte, req Request) ([]byte, error) {
 		buf = append(buf, req.Cmd[space+1:]...)
 		buf = append(buf, '\r', '\n')
 	}
-	for i, val := range req.Args {
-		switch v := val.(type) {
-		case string:
-			buf = appendHead(buf, '$', len(v))
-			buf = append(buf, v...)
-		case []byte:
-			buf = appendHead(buf, '$', len(v))
-			buf = append(buf, v...)
-		case int:
-			buf = appendBulkInt(buf, int64(v))
-		case uint:
-			buf = appendBulkUint(buf, uint64(v))
-		case int64:
-			buf = appendBulkInt(buf, int64(v))
-		case uint64:
-			buf = appendBulkUint(buf, uint64(v))
-		case int32:
-			buf = appendBulkInt(buf, int64(v))
-		case uint32:
-			buf = appendBulkUint(buf, uint64(v))
-		case int8:
-			buf = appendBulkInt(buf, int64(v))
-		case uint8:
-			buf = appendBulkUint(buf, uint64(v))
-		case int16:
-			buf = appendBulkInt(buf, int64(v))
-		case uint16:
-			buf = appendBulkUint(buf, uint64(v))
-		case bool:
-			if v {
-				buf = append(buf, "$1\r\n1"...)
-			} else {
-				buf = append(buf, "$1\r\n0"...)
+	if req.ArgsBS != nil {
+		for _, bts := range req.ArgsBS.ToByteSlice(nil) {
+			buf = appendHead(buf, '$', len(bts))
+			buf = append(buf, bts...)
+		}
+	} else {
+		for i, val := range req.Args {
+			switch v := val.(type) {
+			case string:
+				buf = appendHead(buf, '$', len(v))
+				buf = append(buf, v...)
+			case []byte:
+				buf = appendHead(buf, '$', len(v))
+				buf = append(buf, v...)
+			case int:
+				buf = appendBulkInt(buf, int64(v))
+			case uint:
+				buf = appendBulkUint(buf, uint64(v))
+			case int64:
+				buf = appendBulkInt(buf, int64(v))
+			case uint64:
+				buf = appendBulkUint(buf, uint64(v))
+			case int32:
+				buf = appendBulkInt(buf, int64(v))
+			case uint32:
+				buf = appendBulkUint(buf, uint64(v))
+			case int8:
+				buf = appendBulkInt(buf, int64(v))
+			case uint8:
+				buf = appendBulkUint(buf, uint64(v))
+			case int16:
+				buf = appendBulkInt(buf, int64(v))
+			case uint16:
+				buf = appendBulkUint(buf, uint64(v))
+			case bool:
+				if v {
+					buf = append(buf, "$1\r\n1"...)
+				} else {
+					buf = append(buf, "$1\r\n0"...)
+				}
+			case float32:
+				str := strconv.FormatFloat(float64(v), 'f', -1, 32)
+				buf = appendHead(buf, '$', len(str))
+				buf = append(buf, str...)
+			case float64:
+				str := strconv.FormatFloat(v, 'f', -1, 64)
+				buf = appendHead(buf, '$', len(str))
+				buf = append(buf, str...)
+			case nil:
+				buf = append(buf, "$0\r\n"...)
+			default:
+				return buf[:oldSize], ErrArgumentType.NewWithNoMessage().
+					WithProperty(EKVal, val).
+					WithProperty(EKArgPos, i).
+					WithProperty(EKRequest, req)
 			}
-		case float32:
-			str := strconv.FormatFloat(float64(v), 'f', -1, 32)
-			buf = appendHead(buf, '$', len(str))
-			buf = append(buf, str...)
-		case float64:
-			str := strconv.FormatFloat(v, 'f', -1, 64)
-			buf = appendHead(buf, '$', len(str))
-			buf = append(buf, str...)
-		case nil:
-			buf = append(buf, "$0\r\n"...)
-		default:
-			return buf[:oldSize], ErrArgumentType.NewWithNoMessage().
-				WithProperty(EKVal, val).
-				WithProperty(EKArgPos, i).
-				WithProperty(EKRequest, req)
 		}
 		buf = append(buf, '\r', '\n')
 	}
