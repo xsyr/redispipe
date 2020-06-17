@@ -2,7 +2,7 @@ package redis
 
 import (
 	"fmt"
-	"github.com/xsyr/goinfra/pool"
+	"github.com/xsyr/gokit/pool"
 )
 
 // Req - convenient wrapper to create Request.
