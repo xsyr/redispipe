@@ -22,12 +22,20 @@ func AppendRequest(buf []byte, req Request) ([]byte, error) {
 		}
 	}
 	if space == -1 {
-		buf = appendHead(buf, '*', len(req.Args)+1)
+		if req.ArgsBS != nil {
+			buf = appendHead(buf, '*', req.ArgsBS.Len()+1)
+		} else {
+			buf = appendHead(buf, '*', len(req.Args)+1)
+		}
 		buf = appendHead(buf, '$', len(req.Cmd))
 		buf = append(buf, req.Cmd...)
 		buf = append(buf, '\r', '\n')
 	} else {
-		buf = appendHead(buf, '*', len(req.Args)+2)
+		if req.ArgsBS != nil {
+			buf = appendHead(buf, '*', req.ArgsBS.Len()+2)
+		} else {
+			buf = appendHead(buf, '*', len(req.Args)+2)
+		}
 		buf = appendHead(buf, '$', space)
 		buf = append(buf, req.Cmd[:space]...)
 		buf = append(buf, '\r', '\n')
@@ -36,9 +44,11 @@ func AppendRequest(buf []byte, req Request) ([]byte, error) {
 		buf = append(buf, '\r', '\n')
 	}
 	if req.ArgsBS != nil {
-		for _, bts := range req.ArgsBS.ToByteSlice(nil) {
+        for i:=0; i<req.ArgsBS.Len(); i++ {
+            bts := req.ArgsBS.Index(i)
 			buf = appendHead(buf, '$', len(bts))
 			buf = append(buf, bts...)
+			buf = append(buf, '\r', '\n')
 		}
 	} else {
 		for i, val := range req.Args {
@@ -91,8 +101,8 @@ func AppendRequest(buf []byte, req Request) ([]byte, error) {
 					WithProperty(EKArgPos, i).
 					WithProperty(EKRequest, req)
 			}
+			buf = append(buf, '\r', '\n')
 		}
-		buf = append(buf, '\r', '\n')
 	}
 	return buf, nil
 }
